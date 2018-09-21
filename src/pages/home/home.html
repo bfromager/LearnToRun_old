@@ -1,0 +1,29 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Home</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <button ion-button color="secondary" (click)=btnPlay()>Play</button>
+  <button ion-button color="secondary" (click)=btnStop()>Stop</button>
+  <button ion-button color="secondary" (click)=btnFadeOut()>Fade out</button>
+  <button ion-button color="secondary" (click)=btnFadeIn()>Fade in</button>
+  <button ion-button color="secondary" (click)=btnPause()>Pause</button>
+  <hr>
+  <button ion-button color="secondary" (click)=textToSpeech()>textToSpeech</button>
+  <hr>
+  <timer #timer [timeInSeconds]="610"></timer>
+
+  <ion-list>
+    <button ion-item *ngFor="let item of mp3List">
+      {{item.name}}
+      <div class="item-note" item-end>
+        {{item.path}}
+      </div>
+    </button>
+  </ion-list>
+</ion-content>
