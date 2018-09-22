@@ -17,6 +17,7 @@ import {Mp3ListService} from "./music/mp3list.service";
 import {MediaPlayerService} from "./music/mediaPlayer.service";
 import {MediaServiceFactory} from "./music/media/media.service.factory";
 import {PlaylistsServiceFactory} from "./music/playlist/playlists.service.factory";
+import {VocalService} from "./vocal/vocal.service";
 
 @NgModule({
   declarations: [
@@ -44,6 +45,7 @@ import {PlaylistsServiceFactory} from "./music/playlist/playlists.service.factor
     MediaServiceFactory,
     MediaPlayerService,
     Mp3ListService,
+    VocalService,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })
