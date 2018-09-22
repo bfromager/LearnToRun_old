@@ -12,7 +12,7 @@ import { ListPage } from '../pages/list/list';
 @Component({
   templateUrl: 'app.html'
 })
-export class MyApp {
+export class AppComponent {
   @ViewChild(Nav) nav: Nav;
 
   rootPage: any = HomePage;
@@ -40,7 +40,7 @@ export class MyApp {
   initializeApp() {
     this.platform.ready().then(() => {
 
-      console.log(this.platform.platforms())
+      console.log(this.platform.platforms());
 
       // let s = "";
       // for (let p of this.platform.platforms()) {
