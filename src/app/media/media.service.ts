@@ -1,4 +1,4 @@
-import {Ticker} from "../../ticker/ticker";
+import {Ticker} from "../ticker/ticker";
 import {Subject} from "rxjs/Subject";
 
 export enum MediaStatus {

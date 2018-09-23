@@ -1,5 +1,5 @@
 import {MediaService, MediaStatus} from "./media.service";
-import {Ticker} from "../../ticker/ticker";
+import {Ticker} from "../ticker/ticker";
 
 export class MediaFakeService extends MediaService {
     private fakeDelay: Ticker = new Ticker(1000);

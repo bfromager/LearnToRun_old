@@ -1,7 +1,7 @@
 import {Injectable} from "@angular/core";
 
-import {MediaService, MediaStatus} from "./media/media.service";
-import {MediaServiceFactory} from "./media/media.service.factory";
+import {MediaService, MediaStatus} from "../media/media.service";
+import {MediaServiceFactory} from "../media/media.service.factory";
 
 import {PlaylistsService} from "./playlist/playlists.service";
 import {PlaylistsServiceFactory} from "./playlist/playlists.service.factory";
@@ -18,7 +18,7 @@ export class MediaPlayerService {
     private playlist: Playlist;
 
     constructor(private mediaServiceFactory: MediaServiceFactory, private playlistsServiceFactory: PlaylistsServiceFactory) {
-        this.mediaService = this.mediaServiceFactory.getService();
+        this.mediaService = this.mediaServiceFactory.createNewService();
         this.mediaService.status.subscribe((status) => {
             this.onPlayStatus(status);
         });

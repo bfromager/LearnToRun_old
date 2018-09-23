@@ -7,10 +7,10 @@ export class PlaylistsServiceFactory {
     private playlistsService: PlaylistsService;
 
     constructor(private platform: Platform) {
-        this.playlistsService = this.createPlaylistsService();
+        this.playlistsService = this.createNewService();
     }
 
-    private createPlaylistsService(): PlaylistsService {
+    createNewService(): PlaylistsService {
         // if (this.platform.is('cordova')) {
         //     console.log("cordova");
         //     return new MediaCordovaService ();

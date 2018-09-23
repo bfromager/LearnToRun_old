@@ -15,7 +15,7 @@ import {File} from '@ionic-native/file';
 import {TimerComponent} from "./timer/timer.component";
 import {Mp3ListService} from "./music/mp3list.service";
 import {MediaPlayerService} from "./music/mediaPlayer.service";
-import {MediaServiceFactory} from "./music/media/media.service.factory";
+import {MediaServiceFactory} from "./media/media.service.factory";
 import {PlaylistsServiceFactory} from "./music/playlist/playlists.service.factory";
 import {VocalService} from "./vocal/vocal.service";
 
