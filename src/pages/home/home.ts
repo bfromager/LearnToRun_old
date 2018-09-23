@@ -1,10 +1,11 @@
 import {Component, OnInit} from '@angular/core';
-import {NavController/*, Platform*/} from 'ionic-angular';
+import {NavController, Platform} from 'ionic-angular';
 
 import {Mp3ListService} from "../../app/music/mp3list.service";
 import {MediaPlayerService} from "../../app/music/mediaPlayer.service";
 import {Mp3} from "../../app/music/mp3.interface";
 import {VocalService} from "../../app/vocal/vocal.service";
+import {FilePlayerService} from "../../app/alarm/filePlayer.service";
 
 @Component({
   selector: 'page-home',
@@ -18,6 +19,8 @@ export class HomePage implements OnInit {
             , private mp3ListService: Mp3ListService
             , private mediaPlayer: MediaPlayerService
             , private vocal: VocalService
+            , private filePlayer: FilePlayerService
+            , private platform: Platform
   ) {
   }
 
@@ -47,6 +50,17 @@ export class HomePage implements OnInit {
   }
   btnFadeOut(){
       this.mediaPlayer.fadeOut();
+  }
+
+  btnAlarm(){
+      let rootDir = "";
+
+      if (this.platform.is('android')) {
+          rootDir = '/android_asset/www/';
+      }
+
+      //alert(rootDir + 'assets/sound/alarme.wav');
+      this.filePlayer.play(rootDir + 'assets/sound/Alarme.wav').then(()=>{ alert("done"); });
   }
 
   textToSpeech(){

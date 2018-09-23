@@ -18,6 +18,7 @@ import {MediaPlayerService} from "./music/mediaPlayer.service";
 import {MediaServiceFactory} from "./media/media.service.factory";
 import {PlaylistsServiceFactory} from "./music/playlist/playlists.service.factory";
 import {VocalService} from "./vocal/vocal.service";
+import {FilePlayerService} from "./alarm/filePlayer.service";
 
 @NgModule({
   declarations: [
@@ -41,11 +42,14 @@ import {VocalService} from "./vocal/vocal.service";
     SplashScreen,
     BackgroundMode,
     File,
+
     PlaylistsServiceFactory,
     MediaServiceFactory,
+
     MediaPlayerService,
     Mp3ListService,
     VocalService,
+    FilePlayerService,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })
