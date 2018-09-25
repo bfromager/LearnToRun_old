@@ -1,7 +1,7 @@
 
 export class Playlist {
-    private list = [];
-    private currentList = [];
+    private list: string[] = [];
+    private currentList: string[] = [];
 
     getList (){
         return this.list;

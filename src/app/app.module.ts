@@ -19,6 +19,7 @@ import {MediaServiceFactory} from "./media/media.service.factory";
 import {PlaylistsServiceFactory} from "./music/playlist/playlists.service.factory";
 import {VocalService} from "./vocal/vocal.service";
 import {FilePlayerService} from "./alarm/filePlayer.service";
+import {AlarmService} from "./alarm/alarm.service";
 
 @NgModule({
   declarations: [
@@ -50,6 +51,7 @@ import {FilePlayerService} from "./alarm/filePlayer.service";
     Mp3ListService,
     VocalService,
     FilePlayerService,
+    AlarmService,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })

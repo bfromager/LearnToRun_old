@@ -1,3 +1,12 @@
+/*TODO
+
+  - Event fade in / fade out
+  DONE - pb ratio volume MediaService <-> TextToSpeach
+  - Implémenter le fileExists dans playlist.ts -> getNextFile
+
+ */
+
+
 import {Component, OnInit} from '@angular/core';
 import {NavController, Platform} from 'ionic-angular';
 
@@ -5,7 +14,8 @@ import {Mp3ListService} from "../../app/music/mp3list.service";
 import {MediaPlayerService} from "../../app/music/mediaPlayer.service";
 import {Mp3} from "../../app/music/mp3.interface";
 import {VocalService} from "../../app/vocal/vocal.service";
-import {FilePlayerService} from "../../app/alarm/filePlayer.service";
+import {AlarmService, AlarmType} from "../../app/alarm/alarm.service";
+// import {FilePlayerService} from "../../app/alarm/filePlayer.service";
 
 @Component({
   selector: 'page-home',
@@ -19,7 +29,8 @@ export class HomePage implements OnInit {
             , private mp3ListService: Mp3ListService
             , private mediaPlayer: MediaPlayerService
             , private vocal: VocalService
-            , private filePlayer: FilePlayerService
+            // , private filePlayer: FilePlayerService
+            , private alarm: AlarmService
             , private platform: Platform
   ) {
   }
@@ -59,8 +70,10 @@ export class HomePage implements OnInit {
           rootDir = '/android_asset/www/';
       }
 
-      //alert(rootDir + 'assets/sound/alarme.wav');
-      this.filePlayer.play(rootDir + 'assets/sound/Alarme.wav').then(()=>{ alert("done"); });
+      // this.filePlayer.play(rootDir + 'assets/sound/Alarme.wav').then(()=>{ alert("done"); });
+      this.alarm.trigger({type:AlarmType.WAVE, path: rootDir + 'assets/sound/Alarme.wav'});
+      this.alarm.trigger({type:AlarmType.VOCAL, msg: 'Course lente.'});
+      this.alarm.trigger({type:AlarmType.VOCAL, msg: '1 minute.'});
   }
 
   textToSpeech(){

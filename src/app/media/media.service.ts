@@ -17,14 +17,14 @@ export abstract class MediaService {
     protected userStop = true;
 
 
-    protected maxVolume = 1;
-    protected minVolume = 0.1;
-    protected volumeStep = 0.05;
+    protected maxVolume = 0.1;
+    protected minVolume = this.maxVolume / 10;
+    protected volumeStep = 20;
     protected fadeDelayMs = 750;
     protected  currentVolume = this.maxVolume;
     private isFadingOut = true;
 
-    private ticker: Ticker = new Ticker(this.fadeDelayMs/(this.maxVolume - this.minVolume)*this.volumeStep);
+    private ticker: Ticker = new Ticker(this.fadeDelayMs/this.volumeStep);
 
     status = new Subject<MediaStatus>();
 
@@ -56,19 +56,20 @@ export abstract class MediaService {
     }
 
     private onFaderTick() {
+        let step =  (this.maxVolume - this.minVolume) /  this.volumeStep;
         if (this.isFadingOut) {
             if (this.currentVolume <= this.minVolume) {
                 this.ticker.stop();
                 return;
             }
-            this.currentVolume -= this.volumeStep;
+            this.currentVolume -= step;
         }
         else {
             if (this.currentVolume >= this.maxVolume) {
                 this.ticker.stop();
                 return;
             }
-            this.currentVolume += this.volumeStep;
+            this.currentVolume += step;
         }
         this.setVolume();
     }

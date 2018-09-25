@@ -16,7 +16,7 @@ export class PlaylistsService {
 
         // let fileName = rootDir + 'assets/sound/Dimmu.mp3';
         // fakePlaylist.getList().push(rootDir + 'assets/sound/course lente.wav');
-        // fakePlaylist.getList().push(rootDir + 'assets/sound/Dimmu.mp3');
+        fakePlaylist.getList().push(rootDir + 'assets/sound/Dimmu.mp3');
         fakePlaylist.getList().push(rootDir + 'assets/sound/1 minute.wav');
         fakePlaylist.getList().push(rootDir + 'assets/sound/2 minutes.wav');
         fakePlaylist.getList().push(rootDir + 'assets/sound/not a file');

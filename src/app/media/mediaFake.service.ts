@@ -34,7 +34,7 @@ export class MediaFakeService extends MediaService {
     }
 
     protected setVolume() {
-        console.log("setVolume", this.currentVolume / this.maxVolume);
+        console.log("setVolume", this.currentVolume);
     }
 
     private onTick() {

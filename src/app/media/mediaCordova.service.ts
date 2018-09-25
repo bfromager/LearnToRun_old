@@ -60,7 +60,7 @@ export class MediaCordovaService extends MediaService {
     protected setVolume() {
         console.log("vol : ",this.currentVolume);
         if (this.mediaObject != null /* && this.fileLoaded*/) {
-            this.mediaObject.setVolume(this.currentVolume / this.maxVolume);
+            this.mediaObject.setVolume(this.currentVolume);
         }
     }
 
