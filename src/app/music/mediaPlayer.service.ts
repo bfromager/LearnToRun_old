@@ -71,12 +71,30 @@ export class MediaPlayerService {
         }
     }
 
-    fadeOut() {
-        this.mediaService.fadeOut();
+    fadeOut() : Promise<any> {
+        return new Promise(resolve => {
+            this.mediaService.fadeOut().then(()=>{
+                    resolve(null)
+            });
+        });
     }
 
-    fadeIn() {
-        this.mediaService.fadeIn();
+    fadeIn()  : Promise<any> {
+        return new Promise(resolve => {
+            this.mediaService.fadeIn().then(()=>{
+                resolve(null)
+            });
+        });
     }
-
+    // fadeOut(){
+    //         this.mediaService.fadeOut().then(()=>{
+    //                 console.log("fadeout done")
+    //         });
+    // }
+    //
+    // fadeIn(){
+    //     this.mediaService.fadeIn().then(()=>{
+    //         console.log("fadeIn done")
+    //     });
+    // }
 }

@@ -57,10 +57,10 @@ export class HomePage implements OnInit {
       this.mediaPlayer.stop();
   }
   btnFadeIn(){
-      this.mediaPlayer.fadeIn();
+      this.mediaPlayer.fadeIn();//.then(console.log("fade done"));
   }
   btnFadeOut(){
-      this.mediaPlayer.fadeOut();
+      this.mediaPlayer.fadeOut();//.then(console.log("fade done"));
   }
 
   btnAlarm(){

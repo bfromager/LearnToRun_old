@@ -2,11 +2,13 @@ import {Injectable} from "@angular/core";
 
 import {MediaService, MediaStatus} from "../media/media.service";
 import {MediaServiceFactory} from "../media/media.service.factory";
+import {Subscription} from "rxjs/Subscription";
 
 @Injectable()
 export class FilePlayerService {
 
     private mediaService: MediaService;
+    private sub: Subscription;
     // private mediaStatus: MediaStatus = MediaStatus.NONE;
 
     constructor(private mediaServiceFactory: MediaServiceFactory) {
@@ -19,8 +21,9 @@ export class FilePlayerService {
 
     play(file: string) : Promise<any> {
         return new Promise(resolve => {
-            this.mediaService.status.subscribe((status) => {
+            this.sub = this.mediaService.status.subscribe((status) => {
                 if (status == MediaStatus.FINISHED /*|| status == MediaStatus.NONE*/) {
+                    this.sub.unsubscribe();
                     resolve(null);
                 }
             });
