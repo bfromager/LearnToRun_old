@@ -1,6 +1,6 @@
 /*TODO
 
-  - Event fade in / fade out
+  DONE - Event fade in / fade out
   DONE - pb ratio volume MediaService <-> TextToSpeach
   - Implémenter le fileExists dans playlist.ts -> getNextFile
 

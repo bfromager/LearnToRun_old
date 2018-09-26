@@ -18,7 +18,7 @@ export abstract class MediaService {
     protected userStop = true;
 
 
-    protected maxVolume = 0.1;
+    protected maxVolume = 0.2;
     protected minVolume = this.maxVolume / 10;
     protected volumeStep = 20;
     protected fadeDelayMs = 750;
