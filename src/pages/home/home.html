@@ -17,14 +17,7 @@
   <hr>
   <button ion-button color="secondary" (click)=textToSpeech()>textToSpeech</button>
   <hr>
-  <timer #timer [timeInSeconds]="610"></timer>
+  <timer-component #timer [timeInSeconds]="610"></timer-component>
 
-  <ion-list>
-    <button ion-item *ngFor="let item of mp3List">
-      {{item.name}}
-      <div class="item-note" item-end>
-        {{item.path}}
-      </div>
-    </button>
-  </ion-list>
+  <mp3List-component></mp3List-component>
 </ion-content>

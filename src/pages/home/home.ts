@@ -2,20 +2,21 @@
 
   DONE - Event fade in / fade out
   DONE - pb ratio volume MediaService <-> TextToSpeach
+  DONE - changer mp3ListService en composant
+  - mettre des css valides sur les composants
   - Implémenter le fileExists dans playlist.ts -> getNextFile
-
+  - Récupérer les tags mp3
+  - Dans certains cas, la liste des mp3 est vide
+  - parametriser Timer.component
+  - Faire un composant Seance (playlist + alarm + timer)
  */
-
 
 import {Component, OnInit} from '@angular/core';
 import {NavController, Platform} from 'ionic-angular';
 
-import {Mp3ListService} from "../../app/music/mp3list.service";
 import {MediaPlayerService} from "../../app/music/mediaPlayer.service";
-import {Mp3} from "../../app/music/mp3.interface";
 import {VocalService} from "../../app/vocal/vocal.service";
 import {AlarmService, AlarmType} from "../../app/alarm/alarm.service";
-// import {FilePlayerService} from "../../app/alarm/filePlayer.service";
 
 @Component({
   selector: 'page-home',
@@ -23,28 +24,15 @@ import {AlarmService, AlarmType} from "../../app/alarm/alarm.service";
 })
 export class HomePage implements OnInit {
 
-  private mp3List: Mp3[] = [];
-
   constructor(public navCtrl: NavController
-            , private mp3ListService: Mp3ListService
             , private mediaPlayer: MediaPlayerService
             , private vocal: VocalService
-            // , private filePlayer: FilePlayerService
             , private alarm: AlarmService
             , private platform: Platform
   ) {
   }
 
   ngOnInit() {
-      console.log("OnInit");
-
-      this.mp3ListService.mp3Subject.subscribe(
-          (mp3: Mp3) => {
-            this.mp3List.push(mp3);
-            console.log(mp3.name);
-          }
-      );
-      this.mp3ListService.getList();
   }
 
   btnPlay(){

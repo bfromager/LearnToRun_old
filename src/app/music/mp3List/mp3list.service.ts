@@ -10,7 +10,7 @@
 import {File} from '@ionic-native/file';
 import {Platform} from "ionic-angular";
 import {Subject} from "rxjs/Subject";
-import {Mp3} from "./mp3.interface";
+import {Mp3} from "../mp3.interface";
 import {Injectable} from "@angular/core";
 
 @Injectable()

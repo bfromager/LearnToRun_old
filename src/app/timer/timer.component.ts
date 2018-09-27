@@ -6,8 +6,9 @@ import {Ticker} from "../ticker/ticker";
 import {Subscription} from "rxjs/Subscription";
 
 @Component({
-    selector: 'timer',
-    templateUrl: 'timer.component.html'
+    selector: 'timer-component',
+    templateUrl: 'timer.component.html',
+    // styleUrls: ['./timer.component.css']
 })
 export class TimerComponent implements OnInit, OnDestroy {
 
