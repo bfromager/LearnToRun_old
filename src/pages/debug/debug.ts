@@ -19,10 +19,10 @@ import {VocalService} from "../../app/vocal/vocal.service";
 import {AlarmService, AlarmType} from "../../app/alarm/alarm.service";
 
 @Component({
-  selector: 'page-home',
-  templateUrl: 'home.html'
+  selector: 'page-debug',
+  templateUrl: 'debug.html'
 })
-export class HomePage implements OnInit {
+export class DebugPage implements OnInit {
 
   constructor(public navCtrl: NavController
             , private mediaPlayer: MediaPlayerService

@@ -3,7 +3,7 @@ import { ErrorHandler, NgModule } from '@angular/core';
 import {IonicApp, IonicErrorHandler, IonicModule} from 'ionic-angular';
 
 import { AppComponent } from './app.component';
-import { HomePage } from '../pages/home/home';
+import { DebugPage } from '../pages/debug/debug';
 import { ListPage } from '../pages/list/list';
 
 import { StatusBar } from '@ionic-native/status-bar';
@@ -25,7 +25,7 @@ import {Mp3ListComponent} from "./music/mp3List/mp3List.component";
 @NgModule({
   declarations: [
     AppComponent,
-    HomePage,
+    DebugPage,
     ListPage,
     TimerComponent,
     Mp3ListComponent
@@ -37,7 +37,7 @@ import {Mp3ListComponent} from "./music/mp3List/mp3List.component";
   bootstrap: [IonicApp],
   entryComponents: [
     AppComponent,
-    HomePage,
+    DebugPage,
     ListPage
   ],
   providers: [

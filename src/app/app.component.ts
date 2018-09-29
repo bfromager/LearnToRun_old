@@ -4,7 +4,7 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { BackgroundMode } from '@ionic-native/background-mode';
 
-import { HomePage } from '../pages/home/home';
+import { DebugPage } from '../pages/debug/debug';
 import { ListPage } from '../pages/list/list';
 // import {MediaService} from "./music/media.service";
 // import {Mp3ListService} from "./music/mp3list.service";
@@ -15,7 +15,7 @@ import { ListPage } from '../pages/list/list';
 export class AppComponent {
   @ViewChild(Nav) nav: Nav;
 
-  rootPage: any = HomePage;
+  rootPage: any = DebugPage;
 
   pages: Array<{title: string, component: any}>;
 
@@ -31,8 +31,8 @@ export class AppComponent {
 
     // used for an example of ngFor and navigation
     this.pages = [
-      { title: 'Home', component: HomePage },
-      { title: 'List', component: ListPage }
+      { title: 'List', component: ListPage },
+      { title: 'Debug', component: DebugPage },
     ];
 
   }
