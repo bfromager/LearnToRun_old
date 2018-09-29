@@ -8,8 +8,9 @@ import {Subscription} from "rxjs/Subscription";
 @Component({
     selector: 'timer-component',
     templateUrl: 'timer.component.html',
-    // styleUrls: ['./timer.component.css']
+    // style: ['timer.component.css']
 })
+
 export class TimerComponent implements OnInit, OnDestroy {
 
     @Input() timeInSeconds: number;
@@ -29,8 +30,8 @@ export class TimerComponent implements OnInit, OnDestroy {
 
     ngOnDestroy() {
         console.log("TimerComponent Destroy");
-        this.ticker.stop();
-        this.tickerSub.unsubscribe();
+        //this.ticker.stop();
+        //this.tickerSub.unsubscribe();
     }
 
     hasFinished() {

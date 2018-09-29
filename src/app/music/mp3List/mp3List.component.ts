@@ -2,9 +2,11 @@ import {Component, OnInit} from "@angular/core";
 import {Mp3} from "../mp3.interface";
 import {Mp3ListService} from "./mp3list.service";
 
+//https://www.joshmorony.com/a-guide-to-styling-an-ionic-2-application/
+
 @Component({
     selector: 'mp3List-component',
-    templateUrl: 'mp3List.component.html'
+    templateUrl: 'mp3List.component.html',
 })
 export class Mp3ListComponent implements OnInit {
 
