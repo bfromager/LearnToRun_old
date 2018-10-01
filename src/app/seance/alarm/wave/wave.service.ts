@@ -1,11 +1,11 @@
 import {Injectable} from "@angular/core";
 
-import {MediaService, MediaStatus} from "../media/media.service";
-import {MediaServiceFactory} from "../media/media.service.factory";
+import {MediaService, MediaStatus} from "../../../music/media/media.service";
+import {MediaServiceFactory} from "../../../music/media/media.service.factory";
 import {Subscription} from "rxjs/Subscription";
 
 @Injectable()
-export class FilePlayerService {
+export class WaveService {
 
     private mediaService: MediaService;
     private sub: Subscription;

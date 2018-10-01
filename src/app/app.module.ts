@@ -14,12 +14,12 @@ import {File} from '@ionic-native/file';
 
 import {TimerComponent} from "./timer/timer.component";
 import {Mp3ListService} from "./music/mp3List/mp3list.service";
-import {MediaPlayerService} from "./music/mediaPlayer.service";
-import {MediaServiceFactory} from "./media/media.service.factory";
+import {MediaPlayerService} from "./seance/mediaPlayer.service";
+import {MediaServiceFactory} from "./music/media/media.service.factory";
 import {PlaylistsServiceFactory} from "./music/playlist/playlists.service.factory";
-import {VocalService} from "./vocal/vocal.service";
-import {FilePlayerService} from "./alarm/filePlayer.service";
-import {AlarmService} from "./alarm/alarm.service";
+import {VocalService} from "./seance/alarm/vocal/vocal.service";
+import {WaveService} from "./seance/alarm/wave/wave.service";
+import {AlarmService} from "./seance/alarm/alarm.service";
 import {Mp3ListComponent} from "./music/mp3List/mp3List.component";
 
 @NgModule({
@@ -52,7 +52,7 @@ import {Mp3ListComponent} from "./music/mp3List/mp3List.component";
     MediaPlayerService,
     Mp3ListService,
     VocalService,
-    FilePlayerService,
+    WaveService,
     AlarmService,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]

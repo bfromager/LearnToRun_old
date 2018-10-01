@@ -14,9 +14,9 @@
 import {Component, OnInit} from '@angular/core';
 import {NavController, Platform} from 'ionic-angular';
 
-import {MediaPlayerService} from "../../app/music/mediaPlayer.service";
-import {VocalService} from "../../app/vocal/vocal.service";
-import {AlarmService, AlarmType} from "../../app/alarm/alarm.service";
+import {MediaPlayerService} from "../../app/seance/mediaPlayer.service";
+import {VocalService} from "../../app/seance/alarm/vocal/vocal.service";
+import {AlarmService, AlarmType} from "../../app/seance/alarm/alarm.service";
 
 @Component({
   selector: 'page-debug',

@@ -1,4 +1,4 @@
-import {Ticker} from "../ticker/ticker";
+import {Ticker} from "../../ticker/ticker";
 import {Subject} from "rxjs/Subject";
 import {Subscription} from "rxjs/Subscription";
 

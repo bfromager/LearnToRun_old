@@ -1,8 +1,8 @@
 import {Injectable} from "@angular/core";
 
-import {MediaPlayerService} from "../music/mediaPlayer.service";
-import {FilePlayerService} from "./filePlayer.service";
-import {VocalService} from "../vocal/vocal.service";
+import {MediaPlayerService} from "../mediaPlayer.service";
+import {WaveService} from "./wave/wave.service";
+import {VocalService} from "./vocal/vocal.service";
 
 export enum AlarmType {
     WAVE = 0,
@@ -22,7 +22,7 @@ export class AlarmService {
     private isRunning = false;
     // private isFaded = false;
 
-    constructor(private mediaPlayer: MediaPlayerService, private filePlayer: FilePlayerService, private vocal: VocalService) {
+    constructor(private mediaPlayer: MediaPlayerService, private wave: WaveService, private vocal: VocalService) {
     }
 
     trigger(alarm: Alarm){
@@ -73,7 +73,7 @@ export class AlarmService {
             // }
 
             case AlarmType.WAVE : {
-                this.filePlayer.play(alarm.path).then( () => {
+                this.wave.play(alarm.path).then( () => {
                     this.endTrigger();
                 });
                 break;
