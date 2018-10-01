@@ -5,35 +5,23 @@ import {Subscription} from "rxjs/Subscription";
 
 export class Ticker {
 
-    // private isRunning: boolean = false;
     private timer: Observable<any>;
-    private sub: Subscription;
+    private sub: Subscription = null;
     tick = new Subject();
 
     constructor( public ms: number = 1000 ) {
-        // console.log("Ticker Create");
         this.timer =  interval(ms);
     }
 
     start() {
-        // this.isRunning = true;
         this.sub = this.timer.subscribe(
             ()=>{this.tick.next();}
         )
-        // this.doTick();
     }
     stop() {
-        // this.isRunning = false;
-        this.sub.unsubscribe();
+        if (this.sub != null) {
+            this.sub.unsubscribe();
+            this.sub = null;
+        }
     }
-
-    // private doTick() {
-    //     // console.log("doTick");
-    //     setTimeout(() => {
-    //         if (!this.isRunning) { return; }
-    //         this.tick.next();
-    //         this.doTick();
-    //     }, this.interval);
-    // }
-
 }

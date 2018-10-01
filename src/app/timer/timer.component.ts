@@ -30,8 +30,8 @@ export class TimerComponent implements OnInit, OnDestroy {
 
     ngOnDestroy() {
         console.log("TimerComponent Destroy");
-        //this.ticker.stop();
-        //this.tickerSub.unsubscribe();
+        this.ticker.stop();
+        this.tickerSub.unsubscribe();
     }
 
     hasFinished() {
