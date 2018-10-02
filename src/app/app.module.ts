@@ -21,13 +21,14 @@ import {VocalService} from "./seance/alarm/vocal/vocal.service";
 import {WaveService} from "./seance/alarm/wave/wave.service";
 import {AlarmService} from "./seance/alarm/alarm.service";
 import {Mp3ListComponent} from "./music/mp3List/mp3List.component";
+import {CountDownComponent} from "./seance/countdown/countDown.component";
 
 @NgModule({
   declarations: [
     AppComponent,
     DebugPage,
     ListPage,
-    TimerComponent,
+    CountDownComponent,
     Mp3ListComponent
   ],
   imports: [
