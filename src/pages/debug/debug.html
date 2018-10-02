@@ -13,10 +13,15 @@
   <button ion-button color="secondary" (click)=btnFadeOut()>Fade out</button>
   <button ion-button color="secondary" (click)=btnFadeIn()>Fade in</button>
   <button ion-button color="secondary" (click)=btnPause()>Pause</button>
-  <button ion-button color="secondary" (click)=btnAlarm()>Alarm</button>
   <hr>
-  <button ion-button color="secondary" (click)=textToSpeech()>textToSpeech</button>
+  <button ion-button color="primary" (click)=textToSpeech()>textToSpeech</button>
   <hr>
+  <button ion-button color="danger" (click)=btnTimerStart()>Timer Start</button>
+  <button ion-button color="danger" (click)=btnTimerStop()>Timer Stop</button>
+  <button ion-button color="danger" (click)=btnAlarm()>Alarm</button>
+  <hr>
+  <!--<countdown-component #CountDownComponent1></countdown-component>-->
+  <!--<countdown-component #CountDownComponent2></countdown-component>-->
   <countdown-component></countdown-component>
 
   <mp3List-component></mp3List-component>

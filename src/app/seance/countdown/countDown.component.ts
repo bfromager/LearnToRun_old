@@ -31,11 +31,12 @@ export class CountDownComponent implements OnInit, OnDestroy {
     }
 
     public initCountDown(seconds : number) {
+        this.stop();
         this.initTimeInSeconds = seconds;
-        this.timeInSeconds = seconds;
+        this.timeInSeconds = this.initTimeInSeconds;
         this.displayTime = this.getSecondsAsDigitalClock(this.timeInSeconds);
 
-        this.ticker = new Ticker(100);
+        this.ticker = new Ticker(1000);
         this.tickerSub = this.ticker.tick.subscribe(()=>{this.onTickerTick();});
     }
 
@@ -56,7 +57,7 @@ export class CountDownComponent implements OnInit, OnDestroy {
     }
 
     private onTickerTick(){
-        if (--this.timeInSeconds == 0) {
+        if (--this.timeInSeconds <= 0) {
             this.ticker.stop();
         }
         this.displayTime = this.getSecondsAsDigitalClock(this.timeInSeconds);
