@@ -12,9 +12,8 @@ import { BackgroundMode } from '@ionic-native/background-mode';
 import {File} from '@ionic-native/file';
 
 
-import {TimerComponent} from "./timer/timer.component";
 import {Mp3ListService} from "./music/mp3List/mp3list.service";
-import {MediaPlayerService} from "./seance/mediaPlayer.service";
+import {MediaPlayerService} from "./seance/mediaplayer/mediaPlayer.service";
 import {MediaServiceFactory} from "./music/media/media.service.factory";
 import {PlaylistsServiceFactory} from "./music/playlist/playlists.service.factory";
 import {VocalService} from "./seance/alarm/vocal/vocal.service";
@@ -22,6 +21,7 @@ import {WaveService} from "./seance/alarm/wave/wave.service";
 import {AlarmService} from "./seance/alarm/alarm.service";
 import {Mp3ListComponent} from "./music/mp3List/mp3List.component";
 import {CountDownComponent} from "./seance/countdown/countDown.component";
+import {SeanceComponent} from "./seance/seance.component";
 
 @NgModule({
   declarations: [
@@ -29,6 +29,7 @@ import {CountDownComponent} from "./seance/countdown/countDown.component";
     DebugPage,
     ListPage,
     CountDownComponent,
+    SeanceComponent,
     Mp3ListComponent
   ],
   imports: [

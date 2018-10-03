@@ -1,6 +1,6 @@
 import {Injectable} from "@angular/core";
 
-import {MediaPlayerService} from "../mediaPlayer.service";
+import {MediaPlayerService} from "../mediaplayer/mediaPlayer.service";
 import {WaveService} from "./wave/wave.service";
 import {VocalService} from "./vocal/vocal.service";
 

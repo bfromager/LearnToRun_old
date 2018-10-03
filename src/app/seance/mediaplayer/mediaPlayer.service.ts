@@ -1,11 +1,11 @@
 import {Injectable} from "@angular/core";
 
-import {MediaService, MediaStatus} from "../music/media/media.service";
-import {MediaServiceFactory} from "../music/media/media.service.factory";
+import {MediaService, MediaStatus} from "../../music/media/media.service";
+import {MediaServiceFactory} from "../../music/media/media.service.factory";
 
-import {PlaylistsService} from "../music/playlist/playlists.service";
-import {PlaylistsServiceFactory} from "../music/playlist/playlists.service.factory";
-import {Playlist} from "../music/playlist/playlist";
+import {PlaylistsService} from "../../music/playlist/playlists.service";
+import {PlaylistsServiceFactory} from "../../music/playlist/playlists.service.factory";
+import {Playlist} from "../../music/playlist/playlist";
 
 @Injectable()
 export class MediaPlayerService {

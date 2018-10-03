@@ -11,21 +11,18 @@
   - Faire un composant Seance (playlist + alarm + timer)
  */
 
-import {Component, OnInit, ViewChild} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {NavController, Platform} from 'ionic-angular';
 
-import {MediaPlayerService} from "../../app/seance/mediaPlayer.service";
+import {MediaPlayerService} from "../../app/seance/mediaplayer/mediaPlayer.service";
 import {VocalService} from "../../app/seance/alarm/vocal/vocal.service";
 import {AlarmService, AlarmType} from "../../app/seance/alarm/alarm.service";
-import {CountDownComponent} from "../../app/seance/countdown/countDown.component";
 
 @Component({
   selector: 'page-debug',
   templateUrl: 'debug.html'
 })
 export class DebugPage implements OnInit {
-    // @ViewChild('CountDownComponent') countdown: CountDownComponent;
-    @ViewChild(CountDownComponent) countdown: CountDownComponent;
 
     constructor(public navCtrl: NavController
             , private mediaPlayer: MediaPlayerService
@@ -72,11 +69,4 @@ export class DebugPage implements OnInit {
     }
 
 
-    btnTimerStart(){
-        this.countdown.initCountDown(10);
-        this.countdown.start();
-    }
-    btnTimerStop(){
-        this.countdown.stop();
-    }
 }

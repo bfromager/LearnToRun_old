@@ -5,7 +5,6 @@ import {Subscription} from "rxjs/Subscription";
 @Component({
     selector: 'countdown-component',
     templateUrl: 'countDown.component.html',
-    // style: ['timer.component.css']
 })
 
 export class CountDownComponent implements OnInit, OnDestroy {
@@ -22,8 +21,6 @@ export class CountDownComponent implements OnInit, OnDestroy {
     }
 
     ngOnInit() {
-        // this.initCountDown(30);
-        // this.start();
     }
 
     ngOnDestroy() {
@@ -53,6 +50,12 @@ export class CountDownComponent implements OnInit, OnDestroy {
         if (this.tickerSub != null) {
             this.tickerSub.unsubscribe();
             this.tickerSub = null;
+        }
+    }
+
+    public pause() {
+        if (this.ticker != null) {
+            this.ticker.stop();
         }
     }
 
