@@ -3,28 +3,26 @@ import {Injectable} from "@angular/core";
 import {MediaService, MediaStatus} from "../../music/media/media.service";
 import {MediaServiceFactory} from "../../music/media/media.service.factory";
 
-import {PlaylistsService} from "../../music/playlist/playlists.service";
-import {PlaylistsServiceFactory} from "../../music/playlist/playlists.service.factory";
 import {Playlist} from "../../music/playlist/playlist";
 
 @Injectable()
 export class MediaPlayerService {
 
     private fileLoaded = false;
-    private curFileName: string;
+    private curFileName: string = "";
     private mediaService: MediaService;
     private mediaStatus: MediaStatus = MediaStatus.NONE;
-    private playlistsService: PlaylistsService;
     private playlist: Playlist;
 
-    constructor(private mediaServiceFactory: MediaServiceFactory, private playlistsServiceFactory: PlaylistsServiceFactory) {
+    constructor(private mediaServiceFactory: MediaServiceFactory) {
         this.mediaService = this.mediaServiceFactory.createNewService();
         this.mediaService.status.subscribe((status) => {
             this.onPlayStatus(status);
         });
+    }
 
-        this.playlistsService = this.playlistsServiceFactory.getService();
-        this.playlist = this.playlistsService.getPlaylists()[0];
+    public setPlaylist(playlist: Playlist) {
+        this.playlist = playlist;
         this.playlist.getNextFile()
             .then((nextFile) => {
                 this.curFileName = nextFile;

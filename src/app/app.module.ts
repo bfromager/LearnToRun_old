@@ -51,11 +51,13 @@ import {SeanceComponent} from "./seance/seance.component";
     PlaylistsServiceFactory,
     MediaServiceFactory,
 
-    MediaPlayerService,
     Mp3ListService,
+
+    MediaPlayerService,
+    AlarmService,
     VocalService,
     WaveService,
-    AlarmService,
+
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })
