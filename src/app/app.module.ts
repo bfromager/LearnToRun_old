@@ -12,13 +12,16 @@ import { BackgroundMode } from '@ionic-native/background-mode';
 import {File} from '@ionic-native/file';
 
 
-import {Mp3ListService} from "./music/mp3List/mp3list.service";
-import {MediaPlayerService} from "./seance/mediaplayer/mediaPlayer.service";
 import {MediaServiceFactory} from "./music/media/media.service.factory";
 import {PlaylistsServiceFactory} from "./music/playlist/playlists.service.factory";
+
+import {Mp3ListService} from "./music/mp3List/mp3list.service";
+import {MediaPlayerService} from "./seance/mediaplayer/mediaPlayer.service";
 import {VocalService} from "./seance/alarm/vocal/vocal.service";
 import {WaveService} from "./seance/alarm/wave/wave.service";
 import {AlarmService} from "./seance/alarm/alarm.service";
+import {AssetService} from "./asset/asset.service";
+
 import {Mp3ListComponent} from "./music/mp3List/mp3List.component";
 import {CountDownComponent} from "./seance/countdown/countDown.component";
 import {SeanceComponent} from "./seance/seance.component";
@@ -57,6 +60,7 @@ import {SeanceComponent} from "./seance/seance.component";
     AlarmService,
     VocalService,
     WaveService,
+    AssetService,
 
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]

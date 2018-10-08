@@ -5,8 +5,8 @@ import {PlaylistsService} from "../music/playlist/playlists.service";
 import {Playlist} from "../music/playlist/playlist";
 import {MediaPlayerService} from "./mediaplayer/mediaPlayer.service";
 import {AlarmService, AlarmType} from "./alarm/alarm.service";
-import {Platform} from "ionic-angular";
 import {PlaylistsServiceFactory} from "../music/playlist/playlists.service.factory";
+import {AssetService} from "../asset/asset.service";
 
 @Component({
     selector: 'seance-component',
@@ -21,7 +21,7 @@ export class SeanceComponent implements OnInit, OnDestroy {
     private playlistsService: PlaylistsService;
     private playlist: Playlist;
 
-    constructor(private mediaPlayer: MediaPlayerService, private alarm: AlarmService, private playlistsServiceFactory: PlaylistsServiceFactory, private platform: Platform){
+    constructor(private mediaPlayer: MediaPlayerService, private alarm: AlarmService, private assetService: AssetService, private playlistsServiceFactory: PlaylistsServiceFactory){
     }
 
     ngOnInit() {
@@ -47,14 +47,8 @@ export class SeanceComponent implements OnInit, OnDestroy {
     }
 
     btnAlarm(){
-        let rootDir = "";
-
-        if (this.platform.is('android')) {
-            rootDir = '/android_asset/www/';
-        }
-
         // this.filePlayer.play(rootDir + 'assets/sound/Alarme.wav').then(()=>{ alert("done"); });
-        this.alarm.trigger({type:AlarmType.WAVE, path: rootDir + 'assets/sound/Alarme.wav'});
+        this.alarm.trigger({type:AlarmType.WAVE, path: this.assetService.getWavePath('Alarme.wav')});
         this.alarm.trigger({type:AlarmType.VOCAL, msg: 'Course lente.'});
         this.alarm.trigger({type:AlarmType.VOCAL, msg: '1 minute.'});
     }
