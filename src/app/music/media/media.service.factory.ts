@@ -1,8 +1,8 @@
 import {Platform} from "ionic-angular";
 import {Injectable} from "@angular/core";
-import {MediaCordovaService} from "./mediaCordova.service";
-import {MediaFakeService} from "./mediaFake.service";
-import {MediaService} from "./media.service";
+import {MediaCordova} from "./mediaCordova";
+import {MediaFake} from "./mediaFake";
+import {MediaBase} from "./mediaBase";
 
 @Injectable()
 export class MediaServiceFactory {
@@ -10,14 +10,14 @@ export class MediaServiceFactory {
         console.log("MediaServiceFactory", platform.platforms());
     }
 
-    createNewService(): MediaService {
+    createNewService(): MediaBase {
         if (this.platform.is('cordova')) {
             console.log("cordova");
-            return new MediaCordovaService ();
+            return new MediaCordova ();
         }
         else {
             console.log("not cordova");
-            return new MediaFakeService ();
+            return new MediaFake ();
         }
     }
 

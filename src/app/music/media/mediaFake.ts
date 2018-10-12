@@ -1,7 +1,7 @@
-import {MediaService, MediaStatus} from "./media.service";
+import {MediaBase, MediaStatus} from "./mediaBase";
 import {Ticker} from "../../ticker/ticker";
 
-export class MediaFakeService extends MediaService {
+export class MediaFake extends MediaBase {
     private fakeDelay: Ticker = new Ticker(1000);
     private countDown = 0;
 
@@ -11,23 +11,23 @@ export class MediaFakeService extends MediaService {
     }
 
     load(file : string) {
-        console.log("MediaFakeService", "load", file);
+        console.log("MediaFake", "load", file);
         this.countDown = 2
     }
 
     play(){
-        console.log("MediaFakeService", "play");
+        console.log("MediaFake", "play");
         this.status.next(MediaStatus.STARTING);
         this.status.next(MediaStatus.RUNNING);
         this.fakeDelay.start();
     }
     pause(){
-        console.log("MediaFakeService", "pause");
+        console.log("MediaFake", "pause");
         this.fakeDelay.stop();
         this.status.next(MediaStatus.PAUSED);
     }
     stop(){
-        console.log("MediaFakeService", "stop");
+        console.log("MediaFake", "stop");
         this.fakeDelay.stop();
         this.status.next(MediaStatus.PAUSED);
         this.status.next(MediaStatus.STOPPED);

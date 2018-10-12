@@ -1,7 +1,13 @@
+import {FileService} from "../../files/file.service";
 
 export class Playlist {
     private list: string[] = [];
     private currentList: string[] = [];
+    private file: FileService = new FileService();
+
+    constructor () {
+        console.log('Playlist constructor');
+    }
 
     getList (){
         return this.list;
@@ -11,40 +17,6 @@ export class Playlist {
         this.currentList = this.list.slice();
     }
 
-    // private getNextExistingFile(): Promise<string> {
-    //     return new Promise((resolve, reject) => {
-    //         if (this.currentList.length == 0) {
-    //             this.initPlaylist();
-    //             if (this.currentList.length == 0) {
-    //                 reject("Playlist is empty");
-    //             }
-    //         }
-    //         let aFile = this.currentList.shift();
-    //         let filePath = aFile.substring(0, aFile.lastIndexOf('/') + 1);
-    //         let fileName = aFile.substring(aFile.lastIndexOf('/') + 1, aFile.length);
-    //
-    //         if (fileName == "not a file") {
-    //             this.getNextExistingFile()
-    //                 .then((_file:string)=>{
-    //                     resolve(_file);
-    //                 })
-    //                 .catch(()=>{
-    //                     reject("");
-    //                 })
-    //         }else{
-    //             resolve(aFile);
-    //         }
-    //     });
-    // }
-    // public getNextFile(): Promise<string> {
-    //     return new Promise((resolve, reject) => {
-    //         this.getNextExistingFile()
-    //             .then( (aFile:string) => {
-    //                 resolve(aFile);
-    //             })
-    //             .catch ( (error) => {reject(error);});
-    //     });
-    // }
     public getNextFile(): Promise<string> {
         return new Promise((resolve, reject) => {
             if (this.currentList.length == 0) {
@@ -54,10 +26,12 @@ export class Playlist {
                 }
             }
             let nextFile = this.currentList.shift();
-            let filePath = nextFile.substring(0, nextFile.lastIndexOf('/') + 1);
-            let fileName = nextFile.substring(nextFile.lastIndexOf('/') + 1, nextFile.length);
 
-            if (fileName == "not a file") {
+            this.file.exists(nextFile).then((result)=>{
+                console.log('file.exists : ', result);
+                resolve(nextFile);
+            }).catch((error)=>{
+                console.log('file.exists : error ', error);
                 this.getNextFile()
                     .then((aFile:string)=>{
                         resolve(aFile);
@@ -65,9 +39,7 @@ export class Playlist {
                     .catch((error)=>{
                         reject(error);
                     })
-            }else{
-                resolve(nextFile);
-            }
+            });
         });
     }
 

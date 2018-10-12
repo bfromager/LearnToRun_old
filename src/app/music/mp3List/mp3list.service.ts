@@ -60,44 +60,4 @@ export class Mp3ListService {
                 });
             });
     }
-
-    // async listMp3Files(path: string) {
-    //     try {
-    //         let root : string;
-    //         if (this.platform.is('android')) {
-    //             root = this._file.externalRootDirectory;
-    //         }
-    //         else {
-    //             root = this._file.applicationDirectory;
-    //             console.log(root);
-    //         }
-    //
-    //         const result = <Entry[]> await this._file.listDir(root, path);
-    //         for (let item of result) {
-    //             if(item.isDirectory == true && item.name != '.' && item.name!= '..')
-    //             {
-    //                 this.listMp3Files(path + '/' + item.name);
-    //             }
-    //             else if (item.isFile == true && item.name.substr(item.name.lastIndexOf('.')+1).toLowerCase() == 'mp3')
-    //             {
-    //                 //File found
-    //                 this._fileList.push(<Mp3>{
-    //                     name: item.name,
-    //                     path: item.fullPath
-    //                 });
-    //             }
-    //         }
-    //     }
-    //     catch (error) {
-    //         this._fileList.push(<Mp3>{
-    //             name: "No such directory",
-    //             path: error
-    //         });
-    //     }
-    //     this.mp3List.next(this._fileList.slice());
-    // }
-
-
-
-
 }

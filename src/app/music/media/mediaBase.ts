@@ -12,7 +12,7 @@ export enum MediaStatus {
 }
 
 // @Injectable()
-export abstract class MediaService {
+export abstract class MediaBase {
     // private tickerSub: Subscription;
 
     protected userStop = true;

@@ -1,7 +1,7 @@
 import {Media, MEDIA_ERROR, MEDIA_STATUS, MediaObject} from '@ionic-native/media';
-import {MediaService, MediaStatus} from "./media.service";
+import {MediaBase, MediaStatus} from "./mediaBase";
 
-export class MediaCordovaService extends MediaService {
+export class MediaCordova extends MediaBase {
 
     protected userStop = true;
     private media: Media = new Media();

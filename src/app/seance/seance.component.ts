@@ -1,12 +1,11 @@
 import {Component, OnDestroy, OnInit, ViewChild} from "@angular/core";
 import {CountDownComponent} from "./countdown/countDown.component";
 import {Seance} from "./seance";
-import {PlaylistsService} from "../music/playlist/playlists.service";
 import {Playlist} from "../music/playlist/playlist";
 import {MediaPlayerService} from "./mediaplayer/mediaPlayer.service";
 import {AlarmService, AlarmType} from "./alarm/alarm.service";
-import {PlaylistsServiceFactory} from "../music/playlist/playlists.service.factory";
-import {AssetService} from "../asset/asset.service";
+import {PlaylistsService} from "../music/playlist/playlists.service";
+import {AssetService} from "../files/asset.service";
 
 @Component({
     selector: 'seance-component',
@@ -18,15 +17,13 @@ export class SeanceComponent implements OnInit, OnDestroy {
     @ViewChild(CountDownComponent) countdown: CountDownComponent;
 
     private seance: Seance;
-    private playlistsService: PlaylistsService;
     private playlist: Playlist;
 
-    constructor(private mediaPlayer: MediaPlayerService, private alarm: AlarmService, private assetService: AssetService, private playlistsServiceFactory: PlaylistsServiceFactory){
+    constructor(private mediaPlayer: MediaPlayerService, private alarm: AlarmService, private assetService: AssetService, private playlists: PlaylistsService){
     }
 
     ngOnInit() {
-        this.playlistsService = this.playlistsServiceFactory.getService();
-        this.playlist = this.playlistsService.getPlaylists()[0];
+        this.playlist = this.playlists.getPlaylists()[0];
         this.mediaPlayer.setPlaylist(this.playlist);
     }
 
